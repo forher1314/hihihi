@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Untuk Kamu ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+  text-align: center;
+  color: #333;
+}
+
+/* halaman awal */
+#awal {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* card */
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 600px;
+  margin: auto;
+  display: none;
+  animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+button {
+  background: #ff4b5c;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* ending */
+#ending {
+  display: none;
+  font-size: 30px;
+  margin-top: 50px;
+  color: #ff4b5c;
+}
+
+/* hati jatuh */
+.heart {
+  position: absolute;
+  color: red;
+  animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+  0% { top: -10%; }
+  100% { top: 110%; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HALAMAN AWAL -->
+<div id="awal">
+  <h1>Aku punya sesuatu buat kamu ❤️</h1>
+  <button onclick="mulai()">Klik di sini</button>
+</div>
+
+<!-- SURAT -->
+<div class="card" id="surat">
+  <h2>Happy Birthday 🎉</h2>
+  <p>Hai kamu...</p>
+  <p>Selamat ulang tahun ya ❤️</p>
+  <p>Aku bersyukur banget punya kamu walaupun kita jauh.</p>
+  <p>Kamu selalu jadi alasan aku bertahan sampai sekarang.</p>
+
+  <button onclick="lanjut()">Lanjut...</button>
+</div>
+
+<!-- ENDING -->
+<div id="ending">
+  <p>I'm lucky to have you ❤️</p>
+  <p>Happy Birthday 💖</p>
+</div>
+
+<script>
+function mulai() {
+  document.getElementById("awal").style.display = "none";
+  document.getElementById("surat").style.display = "block";
+}
+
+function lanjut() {
+  document.getElementById("surat").style.display = "none";
+  document.getElementById("ending").style.display = "block";
+
+  // animasi hati
+  setInterval(() => {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 5000);
+  }, 300);
+}
+</script>
+
+</body>
+</html>
